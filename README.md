@@ -44,4 +44,42 @@ Execute o jogo com o comando:
 python main.py
 
 
+### Controles do Jogo:
+
+- **Seta Esquerda:** Mover Isaac para a esquerda.
+- **Seta Direita:** Mover Isaac para a direita.
+- **Seta Cima:** Mover Isaac para cima.
+- **Seta Baixo:** Mover Isaac para baixo.
+
+### Objetivo:
+
+Desvie das maçãs que caem da árvore. A cada maçã evitada, sua pontuação aumenta. Se uma maçã atingir Isaac, o jogo termina.
+
+### Fim de Jogo:
+
+Quando Isaac colide com uma maçã, uma mensagem de "Você Perdeu!" aparecerá, indicando o fim do jogo.
+
+## 🖼️ Recursos Visuais
+
+O jogo utiliza os seguintes recursos visuais que devem estar presentes no diretório `images/`:
+
+- **Fundo:** `windows-xp.jpg` - A imagem de fundo do jogo.
+- **Isaac Newton:** `small_preview_rev_1.png` - A imagem do personagem Isaac.
+- **Maçã:** `apple.png` - A imagem das maçãs que caem.
+- **Árvore:** `desenho-de-arvore_preview_rev_1.png` - A imagem da árvore de onde as maçãs caem.
+
+## 🚧 Controle de Erros
+
+Este projeto inclui controle de erros para garantir que o jogo não quebre caso algum recurso visual ou fonte esteja ausente ou corrompido. Se ocorrer um erro ao carregar uma imagem ou fonte, o jogo exibirá uma mensagem de erro no console e será encerrado de forma segura.
+
+## 🛠️ Contribuição
+
+Contribuições são bem-vindas! Se você encontrou um bug, tem uma ideia para uma nova funcionalidade ou deseja melhorar o código, sinta-se à vontade para abrir uma issue ou enviar um pull request.
+
+## 📝 Licença
+
+Este projeto está licenciado sob a MIT License. Isso significa que você é livre para usar, modificar e distribuir este código, desde que mantenha a atribuição original.
+
+
+
 
