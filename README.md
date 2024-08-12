@@ -36,13 +36,6 @@ Siga as instruções abaixo para configurar e executar o jogo no seu ambiente lo
    pip install -r requirements.txt
 
 
-## 🚀 Como Jogar
-
-Execute o jogo com o comando:
-
-```bash
-python main.py
-
 
 ### Controles do Jogo:
 
