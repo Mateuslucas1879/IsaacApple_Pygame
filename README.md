@@ -21,3 +21,18 @@ Siga as instruções abaixo para configurar e executar o jogo no seu ambiente lo
 1. **Clone o repositório:**
    ```bash
    git clone https://github.com/seu-usuario/isaac-newton-macas.git
+
+2. **Navege ate o diretorio do projeto:**
+    ```bash
+   cd isaac-newton-macas
+
+3. **Crie um ambiente virtual (opcional, mas recomendado):**
+    ```bash
+   python -m venv venv
+   source venv/bin/activate  # No Windows: venv\Scripts\activate
+
+4. **Instale as dependências necessárias:**
+    ```bash
+   pip install -r requirements.txt
+
+
