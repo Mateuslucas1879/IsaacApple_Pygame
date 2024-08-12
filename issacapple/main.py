@@ -15,7 +15,7 @@ pygame.init()
 tamanho = (800,600)
 
 fonte = font.SysFont('comicsans', 30,)
-fonte_perdeu = font.SysFont('comicsans', 300)
+fonte_perdeu = font.SysFont('comicsans', 30)
 
 
 superficie = display.set_mode(
@@ -39,8 +39,6 @@ class IssacFausto(Sprite):
         self.rect.center = (tamanho[0] // 2, tamanho[1] - self.rect.height // 2 - 25)
         self.macas = macas
         self.velocidade = 5
-
-
 
     def update(self):
         keys = pygame.key.get_pressed()
@@ -97,7 +95,7 @@ class Virus(Sprite):
     def update(self):
         if randint(0, 100) < 2:
             # Faz as maçãs surgirem em posições x aleatórias da largura da tela
-            x_position = randint(0, tamanho[0])
+            x_position = self.rect.left + randint(0, self.rect.width)
             # As maçãs surgem da metade superior da árvore
             y_position = self.rect.top + randint(0, self.rect.height // 2)
             self.macas.add(Maca(x_position, y_position))
@@ -113,8 +111,6 @@ grupo_inimigos = Group(virus)
 clock = Clock()
 perdeu = False
 
-
-
 # Main loop flag
 running = True
 
@@ -126,19 +122,26 @@ while running:
 
     # Desenhar fundo
     superficie.blit(fundo, (0, 0))
+    if not perdeu:
+        # Atualiza Issac e maças
+        issacfausto.update()
+        issacfausto.macas.update()
+        grupo_inimigos.update()
 
-    # Atualiza Issac e maças
-    issacfausto.update()
-    issacfausto.macas.update()
-    grupo_inimigos.update()
+        #   VERIFICAR COLISÃO
+        if pygame.sprite.spritecollide(issacfausto, grupo_macas, True):
+            perdeu = True
+
+    else:
+        # Exibir mensagem de fim de jogo
+        texto_perdeu = fonte_perdeu.render('Você Perdeu!', True, (255, 0, 0))
+        superficie.blit(texto_perdeu, (
+        tamanho[0] // 2 - texto_perdeu.get_width() // 2, tamanho[1] // 2 - texto_perdeu.get_height() // 2))
 
     # Desenha os sprites
     grupo_inimigos.draw(superficie)  # Desenha a árvore (Virus)
     superficie.blit(issacfausto.image, issacfausto.rect)  # Desenha Isaac primeiro
     issacfausto.macas.draw(superficie)  # Desenha as maçãs por último, na frente da árvore
-
-    if pygame.sprite.spritecollide(issacfausto, grupo_macas, True):
-        perdeu = True
 
     # Update the display
     display.update()
